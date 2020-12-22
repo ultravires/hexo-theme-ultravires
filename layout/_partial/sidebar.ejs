@@ -1,0 +1,9 @@
+<aside id="sidebar"<% if (theme.sidebar === 'bottom'){ %> class="outer"<% } %>>
+  <% if (is_post()){ %>
+    <%- partial('_partial/toc') %>
+  <% } else { %>
+    <% theme.widgets.forEach(function(widget){ %>
+      <%- partial('_widget/' + widget) %>
+    <% }) %>
+  <% } %>
+</aside>

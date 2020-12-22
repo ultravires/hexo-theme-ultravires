@@ -1,0 +1,36 @@
+<aside id="aside">
+  <div id="aside-outer" class="outer">
+    <!-- <div id="aside-title" class="inner">
+      <h1 id="aside__logo-wrap">
+        <a href="<%- url_for() %>" id="aside__logo"><%= config.title %></a>
+      </h1>
+      <% if (theme.subtitle){ %>
+        <h2 id="aside__subtitle-wrap">
+          <a href="<%- url_for() %>" id="aside__subtitle"><%= theme.subtitle %></a>
+        </h2>
+      <% } %>
+    </div> -->
+    <div id="aside-inner" class="inner">
+      <nav id="aside__main-nav">
+        <a id="aside__main-nav-toggle" class="aside__nav-icon"></a>
+        <% for (var i in theme.menu){ %>
+          <a class="aside__main-nav-link" href="<%- __(url_for(theme.menu[i].link)) %>">
+            <% if (theme.menu[i].icon) {%>
+              <i class="zm <%= theme.menu[i].icon%>"></i>
+            <% } %>
+            <%= __('menu.' + i.toLowerCase()) %>
+          </a>
+        <% } %>
+      </nav>
+      <nav id="aside__sub-nav">
+        <% if (theme.rss){ %>
+          <a id="nav-rss-link" class="nav-icon" href="<%- __(url_for(theme.rss)) %>" title="<%= __('rss_feed') %>"></a>
+        <% } %>
+        <a id="aside__nav-search-btn" class="nav-icon" title="<%= __('search') %>"></a>
+      </nav>
+      <div id="aside__search-form-wrap">
+        <%- search_form({button: '&#xF002;'}) %>
+      </div>
+    </div>
+  </div>
+</aside>

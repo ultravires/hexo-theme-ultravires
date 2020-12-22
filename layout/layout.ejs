@@ -1,0 +1,38 @@
+<%- partial('_partial/head') %>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <% if (theme.navigator === 'aside') { %>
+        <%- partial('_partial/aside', null, {cache: !config.relative_link}) %>
+      <% } else { %>
+        <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+      <% } %>
+      <div class="outer">
+        <section id="main">
+          <% if (is_post()){ %>
+            <div class="posts">
+              <%- body %>
+            </div>
+          <% } else { %>
+            <div class="posts infinite">
+              <%- body %>
+            </div>
+          <% } %>
+          <% if (page.current < page.total && is_home()) { %>
+            <div class="load-more">
+              <button class="load-more-button">加载更多</button>
+            </div>
+          <% } %>
+        </section>
+        <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
+          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+          <a class="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth'})">回到顶部</a>
+        <% } %>
+      </div>
+      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+    </div>
+    <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+    <%- partial('_partial/after-footer') %>
+  </div>
+</body>
+</html>
