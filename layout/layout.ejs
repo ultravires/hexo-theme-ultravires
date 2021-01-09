@@ -20,13 +20,13 @@
           <% } %>
           <% if (page.current < page.total && is_home()) { %>
             <div class="load-more">
-              <button class="load-more-button">加载更多</button>
+              <button class="load-more-button"><%- __('load_more') %></button>
             </div>
           <% } %>
         </section>
         <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
           <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
-          <a class="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth'})">回到顶部</a>
+          <a class="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth'})"><%- __('back_to_top') %></a>
         <% } %>
       </div>
       <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>

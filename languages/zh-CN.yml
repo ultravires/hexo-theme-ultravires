@@ -18,6 +18,9 @@ powered_by: Powered by
 rss_feed: RSS Feed
 category: 分类目录
 tag: 标签
+more: 更多
+load_more: 加载更多
+back_to_top: 回到顶部
 menu:
   home: 首页
   security: 信息安全
